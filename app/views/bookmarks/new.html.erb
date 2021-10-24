@@ -1,0 +1,14 @@
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :title %>
+  <%= f.input :comment %>
+  <!-- adds bootstrap button  -->
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+<%= simple_form_for [@list, @movie] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :name %>
+  <%= f.association :title %>
+  <!-- adds bootstrap button  -->
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
