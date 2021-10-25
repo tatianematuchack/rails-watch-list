@@ -4,8 +4,10 @@
 
 <div>
 <h2>Movies</h2>
-<ul class="list-group">
-    <% @list.movies.each do |movie| %>
+<div class="card-product">
+  <div class="card-product-infos">
+    <ul class="list-group">
+      <% @list.movies.each do |movie| %>
       <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
       <li class="list-group-item"><%= @list.name %></li>
       <li class="list-group-item"><%= movie.title %></li>
@@ -15,7 +17,8 @@
       <li class="list-group-item"><%= bookmark.comment %></li>
       <%= link_to 'Remove a Bookmark', bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" } %>
     <% end %>
-</ul>
+    </ul>
+  </div>
 </div>
 
 <p>
