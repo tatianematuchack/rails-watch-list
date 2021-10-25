@@ -12,6 +12,8 @@
       <li class="list-group-item"><%= movie.overview %></li>
       <li class="list-group-item"><%= movie.poster_url %></li>
       <li class="list-group-item"><%= movie.rating %></li>
+      <li class="list-group-item"><%= bookmark.comment %></li>
+      <%= link_to 'Remove a Bookmark', bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" } %>
     <% end %>
 </ul>
 </div>
@@ -20,8 +22,5 @@
   <%= link_to 'Add a Bookmark', new_list_bookmark_path(@list) %>
 </p>
 
-<p>
-  <%= link_to 'delete', bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" } %>
-</p>
 
 <p><%= link_to 'Back To lists', lists_path %></p>
