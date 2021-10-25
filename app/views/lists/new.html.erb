@@ -1,6 +1,5 @@
-<%= simple_form_for [@list, @movie] do |f| %>
+<%= simple_form_for @list do |f| %>
   <%= f.input :name %>
-  <%= f.association :title %>
   <!-- adds bootstrap button  -->
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>

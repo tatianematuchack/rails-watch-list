@@ -1,0 +1,27 @@
+<h1>Info about List</h1>
+
+<p> Name: <%= @list.name %> </p>
+
+<div>
+<h2>Movies</h2>
+<ul class="list-group">
+    <% @list.movies.each do |movie| %>
+      <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+      <li class="list-group-item"><%= @list.name %></li>
+      <li class="list-group-item"><%= movie.title %></li>
+      <li class="list-group-item"><%= movie.overview %></li>
+      <li class="list-group-item"><%= movie.poster_url %></li>
+      <li class="list-group-item"><%= movie.rating %></li>
+    <% end %>
+</ul>
+</div>
+
+<p>
+  <%= link_to 'Add a Bookmark', new_list_bookmark_path(@list) %>
+</p>
+
+<p>
+  <%= link_to 'delete', bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" } %>
+</p>
+
+<p><%= link_to 'Back To lists', lists_path %></p>
