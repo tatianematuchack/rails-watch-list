@@ -1,14 +1,14 @@
 <h1>Lists of Movies</h1>
 
-<ul>
+<div class="card-category">
 <% @lists.each do |list| %>
-  <li> Name: <%= link_to list.name, list_path(list)%>
+  <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+    <%= link_to list.name, list_path(list)%>
     <% list.photos.each do |photo| %>
       <%= cl_image_tag photo.key, height: 300, width: 400, crop: :thumb %>
     <% end %>
-  </li>
+  </div>
 <% end %>
-</ul>
-
+</div>
 
 <p><%= link_to 'Add a new List', new_list_path %></p>
