@@ -2,6 +2,15 @@
 
 <p> Name: <%= @list.name %> </p>
 
+<%# FOR IMPLEMENTING HAS_MANY_ATTACHED_PHOTOS %>
+<% if @list.photos.attached? %>
+  <% @list.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :thumb %>
+  <% end %>
+<% else %>
+You should add a picture to your list!
+<% end %>
+
 <div>
 <h2>Movies</h2>
 <div class="card-product">

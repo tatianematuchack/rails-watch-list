@@ -2,8 +2,13 @@
 
 <ul>
 <% @lists.each do |list| %>
-  <li> Name: <%= link_to list.name, list_path(list)%> </li>
+  <li> Name: <%= link_to list.name, list_path(list)%>
+    <% list.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :thumb %>
+    <% end %>
+  </li>
 <% end %>
 </ul>
+
 
 <p><%= link_to 'Add a new List', new_list_path %></p>
